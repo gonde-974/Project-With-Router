@@ -2,34 +2,27 @@ import { useState } from 'react'
 
 import './App.css'
 import NavBarComponent from './components/NavBarComponent'
+import { Outlet } from 'react-router'
+import { ToastContainer, } from 'react-toastify';
+import 'react-toastify/ReactToastify.css'
 
 //pages
-import ProductsPage from './pages/ProductsPage';
-import AboutPage from './pages/AboutPage';
-import ContactPage from './pages/ContactPage';
+// import ProductsPage from './pages/ProductsPage';
+// import AboutPage from './pages/AboutPage';
+// import ContactPage from './pages/ContactPage';
 
 function App() {
-let pathName = window.location.pathname.slice(1);
-console.log(pathName);
-
-function checkCurrentPage (){
-  if(pathName === "products"){
-    return <ProductsPage />
-  }else if(pathName === 'about'){
-    return <AboutPage />
-  }else if(pathName === 'contact'){
-    return <ContactPage />
-  }
-
-}
 
 
   return (
    
      <div>
     < NavBarComponent />
+    
 
-   { checkCurrentPage()}
+        {/* step 3: RETURN PAGE */}
+        <Outlet />
+        <ToastContainer />
      </div>
     
   )
